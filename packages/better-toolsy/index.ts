@@ -197,8 +197,8 @@ async function listDirTool(_toolCallId: string, params: ListDirInput): Promise<T
       {
         type: "text",
         text:
-          sorted.map((e) => `  ${e.type === "directory" ? "📁" : "📄"} ${e.name}`).join("\n") ||
-          "(empty directory)",
+          sorted.map((e) => (e.type === "directory" ? `${e.name}/` : e.name)).join("\n") ||
+          "(empty)",
       },
     ],
     details: { path: params.path, entries: sorted.length },
